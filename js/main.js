@@ -3,6 +3,7 @@ const userInput = document.querySelector('.js-user-input');
 const checkUserInputBtn = document.querySelector('.check-user-guess-btn');
 const generateNumberBtn = document.querySelector('.js-generate-number-btn');
 const computerMessage = document.querySelector('.js-computer-message-el');
+const restartGameBtn = document.querySelector('.js-restart-game-btn');
 
 let generatedNumber;
 
@@ -12,6 +13,13 @@ generateNumberBtn.addEventListener('click', () => {
 });
 
 checkUserInputBtn.addEventListener('click', checkUserGuess);
+userInput.addEventListener('keydown', () => {
+    if (event.key === 'Enter') {
+        checkUserGuess()
+    }
+});
+
+restartGameBtn.addEventListener('click', restartGame);
 
 function generateNumber() {
     return Math.floor(Math.random() * 100 + 1);
@@ -33,4 +41,10 @@ function checkUserGuess() {
     }
 
     userInput.value = '';
+}
+
+function restartGame() {
+    generatedNumber = null;
+    computerAnswerEl.textContent = '';
+    computerMessage.textContent = '';
 }

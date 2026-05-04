@@ -1,9 +1,8 @@
 const computerAnswerEl = document.querySelector('.js-computer-answer-el');
 const userInput = document.querySelector('.js-user-input');
 const checkUserInputBtn = document.querySelector('.check-user-guess-btn');
-const generateNumberBtn = document.querySelector('.js-generate-number-btn');
 const computerMessageEl = document.querySelector('.js-computer-message-el');
-const restartGameBtn = document.querySelector('.js-restart-game-btn');
+const resetGameBtn = document.querySelector('.js-reset-game-btn');
 const newGameBtn = document.querySelector('.js-new-game-btn');
 const attemptsEl = document.querySelector('.js-attempts-el');
 const timesPlayedEl = document.querySelector('.js-times-played-el');
@@ -12,12 +11,8 @@ let generatedNumber;
 let attempts = 0;
 let timesPlayed = 0;
 
+newGame();
 updateGameStats();
-
-generateNumberBtn.addEventListener('click', () => {
-    generatedNumber = generateNumber();
-    computerMessageEl.textContent = 'Generated a new number!';
-});
 
 checkUserInputBtn.addEventListener('click', () => {
     checkUserGuess();
@@ -31,11 +26,7 @@ userInput.addEventListener('keydown', () => {
 });
 
 newGameBtn.addEventListener('click', newGame);
-restartGameBtn.addEventListener('click', restartGame);
-
-function generateNumber() {
-    return Math.floor(Math.random() * 100 + 1);
-}
+resetGameBtn.addEventListener('click', resetGame);
 
 function checkUserGuess() {
     const userGuess = Number(userInput.value);
@@ -59,14 +50,14 @@ function checkUserGuess() {
 }
 
 function newGame() {
-    generatedNumber = null;
+    generatedNumber = Math.floor(Math.random() * 100 + 1);
     computerAnswerEl.textContent = '';
     computerMessageEl.textContent = '';
     attempts = 0;
     updateGameStats();
 }
 
-function restartGame() {
+function resetGame() {
     timesPlayed = 0;
     newGame();
 }

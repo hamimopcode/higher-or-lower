@@ -4,10 +4,15 @@ const checkUserInputBtn = document.querySelector('.check-user-guess-btn');
 const generateNumberBtn = document.querySelector('.js-generate-number-btn');
 const computerMessageEl = document.querySelector('.js-computer-message-el');
 const restartGameBtn = document.querySelector('.js-restart-game-btn');
+const newGameBtn = document.querySelector('.js-new-game-btn');
 const attemptsEl = document.querySelector('.js-attempts-el');
+const timesPlayedEl = document.querySelector('.js-times-played-el');
 
 let generatedNumber;
 let attempts = 0;
+let timesPlayed = 0;
+
+updateGameStats();
 
 generateNumberBtn.addEventListener('click', () => {
     generatedNumber = generateNumber();
@@ -16,17 +21,16 @@ generateNumberBtn.addEventListener('click', () => {
 
 checkUserInputBtn.addEventListener('click', () => {
     checkUserGuess();
-    updateAttemptsCount();
+    updateGameStats();
 });
 userInput.addEventListener('keydown', () => {
     if (event.key === 'Enter') {
         checkUserGuess();
-        updateAttemptsCount();
+        updateGameStats();
     }
 });
 
-
-
+newGameBtn.addEventListener('click', newGame);
 restartGameBtn.addEventListener('click', restartGame);
 
 function generateNumber() {
@@ -43,6 +47,7 @@ function checkUserGuess() {
     } else if (userGuess === generatedNumber) {
         computerAnswerEl.textContent = 'Correct Guess!';
         attempts += 1;
+        timesPlayed += 1;
     } else if (userGuess > generatedNumber) {
         computerAnswerEl.textContent = 'LOWER';
         attempts += 1;
@@ -53,16 +58,20 @@ function checkUserGuess() {
     userInput.value = '';
 }
 
-function restartGame() {
+function newGame() {
     generatedNumber = null;
     computerAnswerEl.textContent = '';
     computerMessageEl.textContent = '';
+    attempts = 0;
+    updateGameStats();
 }
 
-function updateAttemptsCount() {
+function restartGame() {
+    timesPlayed = 0;
+    newGame();
+}
+
+function updateGameStats() {
     attemptsEl.textContent = `Attempts: ${attempts}`;
+    timesPlayedEl.textContent = `Times Played: ${timesPlayed}`;
 }
-
-updateAttemptsCount();
-
-//test push for new username #3

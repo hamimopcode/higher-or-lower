@@ -6,10 +6,13 @@ const resetGameBtn = document.querySelector('.js-reset-game-btn');
 const newGameBtn = document.querySelector('.js-new-game-btn');
 const attemptsEl = document.querySelector('.js-attempts-el');
 const timesPlayedEl = document.querySelector('.js-times-played-el');
+const bestScoreEl = document.querySelector('.js-best-score-el');
 
 let generatedNumber;
 let attempts = 0;
 let timesPlayed = 0;
+
+let score = [];
 
 newGame();
 updateGameStats();
@@ -39,6 +42,7 @@ function checkUserGuess() {
         computerAnswerEl.textContent = 'Correct Guess!';
         attempts += 1;
         timesPlayed += 1;
+        score.push(attempts);
     } else if (userGuess > generatedNumber) {
         computerAnswerEl.textContent = 'LOWER';
         attempts += 1;
@@ -59,10 +63,14 @@ function newGame() {
 
 function resetGame() {
     timesPlayed = 0;
+    score = [];
     newGame();
 }
 
 function updateGameStats() {
     attemptsEl.textContent = `Attempts: ${attempts}`;
     timesPlayedEl.textContent = `Times Played: ${timesPlayed}`;
+
+    const bestScore = score.length < 1 ? 0 : Math.min(...score);
+    bestScoreEl.textContent = `Best Score: ${bestScore}`
 }

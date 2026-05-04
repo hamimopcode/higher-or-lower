@@ -7,6 +7,7 @@ const newGameBtn = document.querySelector('.js-new-game-btn');
 const attemptsEl = document.querySelector('.js-attempts-el');
 const timesPlayedEl = document.querySelector('.js-times-played-el');
 const bestScoreEl = document.querySelector('.js-best-score-el');
+const clearScoreBtn = document.querySelector('.js-clear-score-btn');
 
 let generatedNumber;
 let attempts = 0;
@@ -30,6 +31,7 @@ userInput.addEventListener('keydown', () => {
 
 newGameBtn.addEventListener('click', newGame);
 resetGameBtn.addEventListener('click', resetGame);
+clearScoreBtn.addEventListener('click', clearScore)
 
 function checkUserGuess() {
     const userGuess = Number(userInput.value);
@@ -65,6 +67,11 @@ function resetGame() {
     timesPlayed = 0;
     score = [];
     newGame();
+}
+
+function clearScore() {
+    score = [];
+    updateGameStats();
 }
 
 function updateGameStats() {

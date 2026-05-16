@@ -1,0 +1,183 @@
+:root {
+    --primary-color: #5B23FF;
+    --secondary-color: #008BFF;
+    --dark-color: #362F4F;
+    --accent-color: #E4FF30;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--dark-color);
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-heading-el,
+.page-subheading-el {
+    text-align: center;
+    color: #FFF;
+}
+
+.page-heading-el {
+    font-size: 1.8rem;
+    margin: 15px 0;
+}
+
+.page-subheading-el {
+    font-size: 1.3rem;
+    font-weight: 100;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    font-family: Verdana, Geneva, Tahoma, monospace;
+}
+
+.main-div {
+    background-color: var(--accent-color);
+    max-width: 500px;
+    width: 90%;
+}
+
+.computer-response-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.computer-message-el {
+    color: #ff0000;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.computer-message-el:empty::after {
+    content: '\200b';
+}
+
+.computer-answer-el {
+    font-size: 3rem;
+    font-weight: 800;
+    border: 1px solid #000;
+    text-align: center;
+    width: 80%;
+    padding: 10px;
+    margin: 0;
+}
+
+.computer-answer-el:empty::after {
+    content: '\200b';
+}
+
+.stats-div {
+    font-size: 1.4rem;
+    padding: 4%;
+    margin: 4%;
+}
+
+.attempts-el,
+.times-played-el,
+.best-score-el,
+.clear-score-btn {
+    padding: 0;
+    margin: 18px;
+}
+
+.clear-score-btn {
+    all: unset;
+    font-size: 1.2rem;
+    color: #FF0000;
+    text-decoration: underline;
+
+    &:hover {
+        color: #ae0000;
+    }
+}
+
+.input-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.user-input {
+    font-size: 1.8rem;
+    outline: none;
+    padding: 10px;
+    width: 40%;
+    text-align: center;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    background-color: #f4f4f4;
+}
+
+.check-user-guess-btn {
+    font-size: 1.4rem;
+    font-weight: 500;
+    width: 30%;
+    border: none;
+    border-radius: 4px;
+    color: #FFF;
+    background-color: var(--secondary-color);
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: #0065b7;
+    }
+}
+
+.start-game-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10%;
+}
+
+.new-game-btn {
+    font-size: 1.8rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    padding: 20px;
+    color: #FFF;
+    background-color: var(--primary-color);
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: #481ccd;
+    }
+}
+
+.reset-game-btn {
+    all: unset;
+    margin: 30px 0 0 0;
+    font-size: 1.4rem;
+    color: red;
+    text-decoration: underline;
+}
+
+.copyright-el {
+    margin: 30px 0 0 0;
+    color: #FFF;
+    text-align: center;
+}
+
+

@@ -1,6 +1,6 @@
 const computerAnswerEl = document.querySelector('.js-computer-answer-el');
 const userInput = document.querySelector('.js-user-input');
-const checkUserInputBtn = document.querySelector('.check-user-guess-btn');
+const checkUserInputBtn = document.querySelector('.js-check-user-guess-btn');
 const computerMessageEl = document.querySelector('.js-computer-message-el');
 const resetGameBtn = document.querySelector('.js-reset-game-btn');
 const newGameBtn = document.querySelector('.js-new-game-btn');

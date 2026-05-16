@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,43 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-    <h1 class="page-heading">Higher or Lower</h1>
-    <h2 class="page-subheading">Guess the number!</h2>
-    <p class="js-computer-answer-el"></p>
-    <input type="number" class="js-user-input">
-    <button class="check-user-guess-btn">Check</button>
-    <button class="js-new-game-btn">New Game</button>
-    <button class="js-reset-game-btn">Reset Game</button>
-    <p class="js-computer-message-el"></p>
-    <p class="js-attempts-el"></p>
-    <p class="js-times-played-el"></p>
-    <p class="js-best-score-el"></p>
-    <button class="js-clear-score-btn">Clear Score</button>
+    <header>
+        <div class="heading-div">
+            <h1 class="page-heading-el">Higher or Lower</h1>
+            <h2 class="page-subheading-el">Guess the number!</h2>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-div">
+            <div class="computer-response-div">
+                <p class="computer-message-el js-computer-message-el">Enter a valid number</p>
+                <p class="computer-answer-el js-computer-answer-el">HIGHER</p>
+            </div>
+            <div class="stats-div">
+                <p class="attempts-el js-attempts-el">Attempts: 0</p>
+                <p class="times-played-el js-times-played-el">Times Playes: 0</p>
+                <p class="best-score-el js-best-score-el">Best Score: 0</p>
+                <button class="clear-score-btn js-clear-score-btn">Clear Score</button>
+            </div>
+            <div class="input-div">
+                <input type="number" class="user-input js-user-input">
+                <button class="check-user-guess-btn js-check-user-guess-btn">Check</button>
+            </div>
+            <div class="start-game-div">
+                <button class="new-game-btn js-new-game-btn">New Game</button>
+                <button class="reset-game-btn js-reset-game-btn">Reset Game</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="copyright-el">&copy; hamimopcode | 2026</p>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
